@@ -1,2 +1,10 @@
+# Ignore everything inside build/
 build/*
-!build/outputs/apk/debug
+
+# But not this directory
+!build/outputs/
+!build/outputs/apk/
+!build/outputs/apk/debug/
+
+# Allow all files inside build/outputs/apk/debug
+!build/outputs/apk/debug/**
