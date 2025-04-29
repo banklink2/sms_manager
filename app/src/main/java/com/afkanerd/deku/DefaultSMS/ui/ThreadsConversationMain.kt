@@ -343,7 +343,50 @@ fun ThreadConversationLayout(
             modifier = Modifier.nestedScroll(scrollBehaviour.nestedScrollConnection),
             topBar = {
                 if(selectedItems.isEmpty() && inboxType == InboxType.INBOX) {
-                    CenterAlignedTopAppBar(
+                	CenterAlignedTopAppBar(
+        title = {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(36.dp)
+                    .background(
+                        color = Color(0xFFE8F0FE),
+                        shape = RoundedCornerShape(50)
+                    )
+                    .padding(horizontal = 12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Search,
+                    contentDescription = "Search",
+                    tint = Color.Gray
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = "Search conversations",
+                    color = Color.Gray,
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
+        },
+        navigationIcon = {
+            IconButton(onClick = { /* handle navigation */ }) {
+                Icon(Icons.Default.Menu, contentDescription = "Menu")
+            }
+        },
+        actions = {
+            Box(
+                modifier = Modifier
+                    .size(36.dp)
+                    .clip(CircleShape)
+                    .background(Color(0xFF004D40)), // Deep green
+                contentAlignment = Alignment.Center
+            ) {
+                Text("D", color = Color.White)
+            }
+        }
+    ),
+                    /*CenterAlignedTopAppBar(
                         title = {
                             Text(
                                 text= stringResource(R.string.app_name),
@@ -386,7 +429,7 @@ fun ThreadConversationLayout(
                             }
                         },
                         scrollBehavior = scrollBehaviour
-                    )
+                    )*/
                 }
                 else if(selectedItems.isNotEmpty()) {
                     TopAppBar(
