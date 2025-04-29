@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.lifecycle:lifecycle-runtime-testing:2.8.7@aar" external-system-id="GRADLE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/8.10.2/transforms/9fe214385e211006ea08853d4eea1c9b/transformed/jetified-lifecycle-runtime-testing-2.8.7/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/8.10.2/transforms/9fe214385e211006ea08853d4eea1c9b/transformed/jetified-lifecycle-runtime-testing-2.8.7/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/8.10.2/transforms/9fe214385e211006ea08853d4eea1c9b/transformed/jetified-lifecycle-runtime-testing-2.8.7/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-runtime-testing/2.8.7/38cd9e0686c9cafa22d4067b9de37f7c3350f45/lifecycle-runtime-testing-2.8.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

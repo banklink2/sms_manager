@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: sh.calvin.autolinktext:autolinktext-android-debug:2.0.0@aar" external-system-id="GRADLE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/8.10.2/transforms/07e8e829602708b73856a291dc019253/transformed/jetified-autolinktext-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/8.10.2/transforms/07e8e829602708b73856a291dc019253/transformed/jetified-autolinktext-debug/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/sh.calvin.autolinktext/autolinktext-android-debug/2.0.0/b6f1f6234344e4c96328106e78f5ede9065c51f8/autolinktext-android-debug-2.0.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/sh.calvin.autolinktext/autolinktext-android-debug/2.0.0/15242d5e95cb2afcdbd7b813ffaf8edfac993b6f/autolinktext-android-debug-2.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

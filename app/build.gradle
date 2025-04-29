@@ -1,0 +1,269 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+	id "com.diffplug.spotless" version "6.20.0"
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.9.23'
+
+    id("com.gradleup.nmcp").version("0.0.8")
+    alias(libs.plugins.compose.compiler)
+}
+
+// def keystorePropertiesFile = rootProject.file("keystore.properties")
+// def keystoreProperties = new Properties()
+// keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+def versionsPropertiesFile = rootProject.file("version.properties")
+def versionProperties = new Properties()
+versionProperties.load(new FileInputStream(versionsPropertiesFile))
+
+android {
+    compileSdk 36
+    namespace 'com.afkanerd.deku.DefaultSMS'
+
+    def _versionName = versionProperties['versionName']
+    def tagVersion = Integer.parseInt(versionProperties['tagVersion'])
+
+    println(tagVersion)
+    println(_versionName)
+
+    defaultConfig {
+        applicationId "com.afkanerd.deku"
+        minSdk 24
+        targetSdk 36
+        versionCode tagVersion
+        versionName _versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
+        resourceConfigurations += ["en", "fr", "ru", "de", "pl"]
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    buildscript {
+        ext {
+            compose_compiler = '1.3.1'         //compiler
+            compose_version = '1.3.0-beta02'   //compose dependencies
+            compose_material3 = '1.0.0-beta02' //material3 release
+        }
+        //...
+    }
+
+    sourceSets {
+        androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
+
+        main {
+            jniLibs.srcDirs = ['libs']
+            java {
+                exclude 'com/afkanerd/deku/Images/Images/'
+                exclude 'com/afkanerd/deku/DefaultSMS/Deprecated/*'
+                exclude 'com/afkanerd/deku/DefaultSMS/Deprecated'
+                /* The holder name I want to excludes its all classes */
+            }
+            kotlin {
+                exclude 'com/afkanerd/deku/DefaultSMS/Deprecated/*'
+                /* The holder name I want to excludes its all classes */
+            }
+            resources {
+                srcDirs 'src/main/resources'
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+//            minifyEnabled true
+//            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        //If you want to continue even if errors found use following line
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    implementation project(':smswithoutborders_libsignal-doubleratchet')
+
+    implementation libs.androidx.room.testing
+    implementation libs.androidx.activity
+    implementation libs.androidx.espresso.core
+    def paging_version = "3.3.0"
+
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso.core
+    // optional - Test helpers
+    androidTestImplementation libs.androidx.work.testing
+    // alternatively - without Android dependencies for tests
+    testImplementation "androidx.paging:paging-common:$paging_version"
+
+    implementation libs.androidx.work.runtime
+    implementation libs.androidx.work.rxjava2
+
+    // optional - GCMNetworkManager support
+    implementation libs.androidx.ktx
+
+    implementation libs.androidx.paging.guava
+    // optional - Multiprocess support
+    implementation libs.androidx.work.multiprocess
+
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.constraintlayout
+    implementation libs.androidx.legacy.support.v4
+    implementation libs.volley
+    implementation libs.androidx.core
+
+    implementation libs.commons.codec
+    implementation libs.avatarview.coil
+
+    implementation libs.androidx.room.runtime
+    implementation libs.androidx.room.paging
+    annotationProcessor libs.androidx.room.compiler
+
+    implementation libs.androidx.paging.runtime
+
+    implementation libs.libphonenumber
+
+    implementation libs.prov
+
+    implementation libs.lz4
+    implementation libs.androidx.preference
+
+    implementation libs.amqp.client
+
+    implementation libs.java.websocket
+
+    implementation libs.gson
+
+    implementation libs.material
+
+    implementation libs.androidx.material3
+
+    implementation libs.android.mail
+    implementation libs.android.activation
+
+    implementation libs.commons.net
+
+    implementation libs.fuel //for JVM
+    testImplementation libs.fuel //for JVM
+    testImplementation libs.kotlinx.coroutines.test//
+
+    implementation libs.fuel.android //for Android
+    implementation libs.fuel.coroutines
+
+    implementation libs.kotlinx.serialization.json
+
+    implementation libs.androidx.startup.runtime
+    implementation libs.androidx.security.crypto
+//    implementation('com.google.crypto.tink:tink-android') {
+//        version {
+//            strictly '1.4.0'
+//        }
+//    }
+
+    implementation libs.rxbinding
+
+    // COMPOSE BEGINS
+    def composeBom = libs.androidx.compose.bom
+    implementation composeBom
+    androidTestImplementation composeBom
+
+    // Choose one of the following:
+    // Material Design 3
+    implementation libs.material3
+    // or Material Design 2
+    implementation libs.androidx.material
+    // or skip Material Design and build directly on top of foundational components
+    implementation libs.androidx.foundation
+    // or only import the main APIs for the underlying toolkit systems,
+    // such as input and measurement/layout
+    implementation libs.androidx.ui
+
+    // Android Studio Preview support
+    implementation libs.androidx.ui.tooling.preview
+    debugImplementation libs.androidx.ui.tooling
+
+    // UI Tests
+//    androidTestImplementation libs.androidx.ui.test.junit4
+    debugImplementation libs.androidx.ui.test.manifest
+
+    // Optional - Included automatically by material, only add when you need
+    // the icons but not the material library (e.g. when using Material3 or a
+    // custom design system based on Foundation)
+    implementation libs.androidx.material.icons.core
+    // Optional - Add full set of material icons
+    implementation libs.androidx.material.icons.extended
+
+    // Optional - Integration with activities
+    implementation libs.androidx.activity.compose
+    // Optional - Integration with ViewModels
+    implementation libs.androidx.lifecycle.viewmodel.compose
+    // Optional - Integration with LiveData
+    implementation libs.androidx.runtime.livedata
+    // Optional - Integration with RxJava
+    implementation libs.androidx.runtime.rxjava2
+
+    implementation(libs.androidx.ui.text.google.fonts)
+
+    implementation libs.androidx.graphics.shapes
+
+    // Jetpack Compose integration
+    implementation(libs.androidx.navigation.compose)
+
+    // Views/Fragments integration
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+
+//    // Feature module support for Fragments
+//    implementation(libs.androidx.navigation.dynamic.features.fragment)
+
+    // Testing Navigation
+    androidTestImplementation(libs.androidx.navigation.testing)
+
+    implementation libs.material.icons.extended
+
+    // Coil Image Library
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+
+    implementation(libs.androidx.datastore.preferences)
+
+    // optional - RxJava2 support
+    implementation(libs.androidx.datastore.preferences.rxjava2)
+
+    // optional - RxJava3 support
+    implementation(libs.androidx.datastore.preferences.rxjava3)
+
+    implementation libs.androidx.window
+    androidTestImplementation libs.androidx.window.testing
+
+    // Needed to use lifecycleScope to collect the WindowLayoutInfo flow
+    implementation libs.androidx.lifecycle.runtime.ktx
+
+    implementation(libs.autolinktext)
+
+    implementation libs.accompanist.permissions
+}
+

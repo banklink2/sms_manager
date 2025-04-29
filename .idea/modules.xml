@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/swob_server.iml" filepath="$PROJECT_DIR$/.idea/modules/swob_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/swob_server.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/swob_server.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/swob_server.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/swob_server.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/swob_server.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/swob_server.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/swob_server.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/swob_server.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smswithoutborders_libsignal-doubleratchet/swob_server.smswithoutborders_libsignal-doubleratchet.iml" filepath="$PROJECT_DIR$/.idea/modules/smswithoutborders_libsignal-doubleratchet/swob_server.smswithoutborders_libsignal-doubleratchet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smswithoutborders_libsignal-doubleratchet/swob_server.smswithoutborders_libsignal-doubleratchet.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/smswithoutborders_libsignal-doubleratchet/swob_server.smswithoutborders_libsignal-doubleratchet.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smswithoutborders_libsignal-doubleratchet/swob_server.smswithoutborders_libsignal-doubleratchet.main.iml" filepath="$PROJECT_DIR$/.idea/modules/smswithoutborders_libsignal-doubleratchet/swob_server.smswithoutborders_libsignal-doubleratchet.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smswithoutborders_libsignal-doubleratchet/swob_server.smswithoutborders_libsignal-doubleratchet.testFixtures.iml" filepath="$PROJECT_DIR$/.idea/modules/smswithoutborders_libsignal-doubleratchet/swob_server.smswithoutborders_libsignal-doubleratchet.testFixtures.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smswithoutborders_libsignal-doubleratchet/swob_server.smswithoutborders_libsignal-doubleratchet.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/smswithoutborders_libsignal-doubleratchet/swob_server.smswithoutborders_libsignal-doubleratchet.unitTest.iml" />
+    </modules>
+  </component>
+</project>

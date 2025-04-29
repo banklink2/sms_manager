@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.netricecake:x25519:2.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.github.netricecake" artifactId="x25519" version="2.0" baseVersion="2.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.netricecake/x25519/2.0/ba79cef94191b773844c2fd7bd0e29d911081e72/x25519-2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.netricecake/x25519/2.0/78754f3b6d8fe9ec55d409a21a68a04ff864b17/x25519-2.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.netricecake/x25519/2.0/ed9de451c3ce4ef9c1cc335ff2fa4c7229d851a2/x25519-2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
